@@ -1,0 +1,368 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --radius-2xl: calc(var(--radius) + 8px);
+    --radius-3xl: calc(var(--radius) + 12px);
+    --radius-4xl: calc(var(--radius) + 16px);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+
+    /* Aistra HRMS Design Tokens */
+    --color-navy-900: #102A43;
+    --color-navy-800: #243B53;
+    --color-navy-700: #334E68;
+    --color-navy-600: #486581;
+    --color-navy-500: #627D98;
+    --color-navy-400: #829AB1;
+    --color-navy-300: #9FB3C8;
+    --color-navy-200: #BCCCDC;
+    --color-navy-100: #D9E2EC;
+    --color-navy-50: #F0F4F8;
+    --color-teal-accent: #27AB83;
+    --color-success: #10B981;
+    --color-warning: #F59E0B;
+    --color-error: #EF4444;
+    --color-info: #3B82F6;
+
+    /* Typography */
+    --font-sans: 'DM Sans', sans-serif;
+    --font-display: 'Outfit', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+:root {
+    --radius: 0.75rem;
+    --background: #F8FAFC;
+    --foreground: #0F172A;
+    --card: #FFFFFF;
+    --card-foreground: #0F172A;
+    --popover: #FFFFFF;
+    --popover-foreground: #0F172A;
+    --primary: #27AB83;
+    --primary-foreground: #FFFFFF;
+    --secondary: #F0F4F8;
+    --secondary-foreground: #334E68;
+    --muted: #F1F5F9;
+    --muted-foreground: #627D98;
+    --accent: #F0F4F8;
+    --accent-foreground: #102A43;
+    --destructive: #EF4444;
+    --border: #E2E8F0;
+    --input: #E2E8F0;
+    --ring: #27AB83;
+    --chart-1: #27AB83;
+    --chart-2: #3B82F6;
+    --chart-3: #F59E0B;
+    --chart-4: #8B5CF6;
+    --chart-5: #F43F5E;
+    --sidebar: #FFFFFF;
+    --sidebar-foreground: #475569;
+    --sidebar-primary: #27AB83;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: #EFFCF6;
+    --sidebar-accent-foreground: #147D64;
+    --sidebar-border: #E2E8F0;
+    --sidebar-ring: #27AB83;
+}
+
+.dark {
+    --background: #0F172A;
+    --foreground: #F0F4F8;
+    --card: #1E293B;
+    --card-foreground: #F0F4F8;
+    --popover: #1E293B;
+    --popover-foreground: #F0F4F8;
+    --primary: #3EBD93;
+    --primary-foreground: #FFFFFF;
+    --secondary: #243B53;
+    --secondary-foreground: #D9E2EC;
+    --muted: #243B53;
+    --muted-foreground: #9FB3C8;
+    --accent: #243B53;
+    --accent-foreground: #F0F4F8;
+    --destructive: #F87171;
+    --border: rgba(255, 255, 255, 0.1);
+    --input: rgba(255, 255, 255, 0.15);
+    --ring: #3EBD93;
+    --chart-1: #3EBD93;
+    --chart-2: #3B82F6;
+    --chart-3: #F59E0B;
+    --chart-4: #8B5CF6;
+    --chart-5: #F43F5E;
+    --sidebar: #1E293B;
+    --sidebar-foreground: #9FB3C8;
+    --sidebar-primary: #3EBD93;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: #243B53;
+    --sidebar-accent-foreground: #C6F7E2;
+    --sidebar-border: rgba(255, 255, 255, 0.08);
+    --sidebar-ring: #3EBD93;
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'DM Sans', sans-serif;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #BCCCDC; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #9FB3C8; }
+
+/* Animations */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideInLeft { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+@keyframes shimmer { 0% { background-position: -400px 0; } 100% { background-position: 400px 0; } }
+@keyframes countUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes ringPulse { 0% { box-shadow: 0 0 0 0 rgba(39,171,131,0.3); } 70% { box-shadow: 0 0 0 8px rgba(39,171,131,0); } 100% { box-shadow: 0 0 0 0 rgba(39,171,131,0); } }
+
+.animate-fade-up { animation: fadeUp 0.4s ease-out both; }
+.animate-fade-in { animation: fadeIn 0.3s ease-out both; }
+.animate-slide-left { animation: slideInLeft 0.35s ease-out both; }
+.animate-scale-in { animation: scaleIn 0.25s ease-out both; }
+.animate-count { animation: countUp 0.5s ease-out both; }
+.animate-ring { animation: ringPulse 2s infinite; }
+
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+
+/* Skeleton loading */
+.skeleton {
+    background: linear-gradient(90deg, #F1F5F9 25%, #E2E8F0 50%, #F1F5F9 75%);
+    background-size: 800px 100%;
+    animation: shimmer 1.5s infinite linear;
+    border-radius: 10px;
+}
+
+/* Glass effect */
+.glass { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: rgba(255,255,255,0.8); }
+
+/* Focus ring */
+.focus-ring:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 6px; }
+
+::selection {
+    background-color: rgba(39, 171, 131, 0.2);
+    color: #0F172A;
+}
+
+.dark ::selection {
+    background-color: rgba(62, 189, 147, 0.3);
+    color: #F0F4F8;
+}
+
+/* Dark mode global overrides */
+.dark body {
+    background-color: #0F172A;
+    color: #F0F4F8;
+}
+
+.dark .bg-white {
+    background-color: #1E293B !important;
+}
+
+.dark .bg-slate-50 {
+    background-color: #0F172A !important;
+}
+
+.dark .bg-slate-100 {
+    background-color: #243B53 !important;
+}
+
+.dark .border-slate-200 {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark .border-slate-100 {
+    border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.dark .border-slate-300 {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.dark .text-slate-800,
+.dark .text-slate-900 {
+    color: #F0F4F8 !important;
+}
+
+.dark .text-slate-700 {
+    color: #D9E2EC !important;
+}
+
+.dark .text-slate-600 {
+    color: #BCCCDC !important;
+}
+
+.dark .text-slate-500 {
+    color: #9FB3C8 !important;
+}
+
+.dark .text-slate-400 {
+    color: #829AB1 !important;
+}
+
+.dark .text-navy-900 {
+    color: #F0F4F8 !important;
+}
+
+.dark .bg-slate-50\/50 {
+    background-color: rgba(30, 41, 59, 0.5) !important;
+}
+
+/* Dark mode for specific component backgrounds */
+.dark .bg-teal-50 {
+    background-color: rgba(39, 171, 131, 0.15) !important;
+}
+
+.dark .bg-blue-50 {
+    background-color: rgba(59, 130, 246, 0.15) !important;
+}
+
+.dark .bg-violet-50 {
+    background-color: rgba(139, 92, 246, 0.15) !important;
+}
+
+.dark .bg-amber-50 {
+    background-color: rgba(245, 158, 11, 0.15) !important;
+}
+
+.dark .bg-red-50 {
+    background-color: rgba(239, 68, 68, 0.15) !important;
+}
+
+.dark .bg-emerald-50 {
+    background-color: rgba(16, 185, 129, 0.15) !important;
+}
+
+.dark .bg-yellow-50 {
+    background-color: rgba(245, 158, 11, 0.1) !important;
+}
+
+.dark .bg-orange-50 {
+    background-color: rgba(249, 115, 22, 0.15) !important;
+}
+
+/* Dark mode inputs */
+.dark input,
+.dark textarea,
+.dark select {
+    background-color: #243B53 !important;
+    color: #F0F4F8 !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+    color: #829AB1 !important;
+}
+
+/* Dark mode for dropdowns and popovers */
+.dark [data-radix-popper-content-wrapper] > div,
+.dark [role="listbox"],
+.dark [role="dialog"],
+.dark [data-slot="dropdown-menu-content"],
+.dark [data-slot="select-content"],
+.dark [data-slot="popover-content"] {
+    background-color: #1E293B !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: #F0F4F8 !important;
+}
+
+/* Dark mode for table headers */
+.dark .bg-slate-50 th,
+.dark thead .bg-slate-50 {
+    background-color: #243B53 !important;
+}
+
+/* Dark mode skeleton */
+.dark .skeleton {
+    background: linear-gradient(90deg, #243B53 25%, #334E68 50%, #243B53 75%) !important;
+    background-size: 800px 100% !important;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-thumb {
+    background: #486581;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #627D98;
+}
+
+/* Dark mode hover states */
+.dark .hover\:shadow-md:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark .hover\:bg-slate-50:hover {
+    background-color: rgba(36, 59, 83, 0.5) !important;
+}
+
+/* Dark mode glass effect */
+.dark .glass {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(30, 41, 59, 0.8);
+}
